@@ -24,10 +24,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link href="https://fonts.googleapis.com/css?family=Poor+Story" rel="stylesheet" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{ backgroundColor: 'white', overflowX: 'hidden' }}
       >
-        {children}
+        <div className="max-w-4xl mx-auto min-h-screen border-x border-gray-300" style={{ backgroundColor: 'white', overflow: 'visible' }}>
+          {children}
+        </div>
       </body>
     </html>
   );
