@@ -2,6 +2,8 @@
 
 import React from 'react'
 import { InfiniteMovingCards } from '../../components/ui/infinite-moving-cards'
+import SectionHeader from './SectionHeader'
+import MotionReveal from './MotionReveal'
 
 const testimonials = [
   {
@@ -56,27 +58,20 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section style={{ backgroundColor: 'white' }}>
-      <div className="pb-5 pt-16 px-16 flex flex-col gap-8">
-        {/* Header */}
-        <div className="text-left flex flex-col gap-2">
-          <div className="text-sm font-medium text-gray-500" style={{ fontFamily: 'Product Sans, sans-serif' }}>
-            What People Say
-          </div>
-          <h2 className="font-bold text-black" style={{ fontFamily: 'Product Sans, sans-serif', fontSize: '24px' }}>
-            Testimonials
-          </h2>
-        </div>
+    <section className="bg-white">
+      <div className="section-shell">
+        <MotionReveal>
+          <SectionHeader title="Testimonials" eyebrow="What People Say" />
+        </MotionReveal>
 
-        {/* Infinite Moving Cards */}
-        <div className="rounded-md flex flex-col items-center justify-center relative overflow-visible w-full">
+        <MotionReveal delay={0.1} className="relative flex w-full flex-col items-center justify-center overflow-visible rounded-md">
           <InfiniteMovingCards
             items={testimonials}
             direction="right"
             speed="slow"
             pauseOnHover={false}
           />
-        </div>
+        </MotionReveal>
       </div>
     </section>
   )

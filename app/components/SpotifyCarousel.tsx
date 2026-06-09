@@ -184,10 +184,10 @@ export default function SpotifyCarousel() {
           )}
         </div>
         <div className="p-3 bg-white">
-          <div className="font-bold mb-1 text-sm" style={{ fontFamily: 'Product Sans, sans-serif', color: '#1a1a1a' }}>
+          <div className="font-bold mb-1 text-sm" style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif', color: '#1a1a1a' }}>
             {artist.title}
           </div>
-          <div className="text-xs text-gray-600" style={{ fontFamily: 'Product Sans, sans-serif' }}>
+          <div className="text-xs text-gray-600" style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}>
             {artist.artist}
           </div>
         </div>
@@ -197,16 +197,11 @@ export default function SpotifyCarousel() {
   }
 
   return (
-    <section style={{ backgroundColor: 'white' }}>
-      <div className="pb-5 pt-16 px-16">
-        {/* Header */}
-        <div className="flex flex-col gap-1 mb-6">
-          <p className="text-sm text-gray-500" style={{ fontFamily: 'Product Sans, sans-serif' }}>
-            1,247 hours this year
-          </p>
-          <h3 className="text-2xl font-bold text-gray-600" style={{ fontFamily: 'Product Sans, sans-serif' }}>
-            What I'm Listening To
-          </h3>
+    <section className="bg-white">
+      <div className="section-shell">
+        <div className="flex flex-col gap-2">
+          <p className="section-eyebrow">Now playing</p>
+          <h3 className="section-title text-gray-700">What I&apos;m Listening To</h3>
         </div>
 
         {/* Infinite Scroll Container */}

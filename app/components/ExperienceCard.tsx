@@ -81,7 +81,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
             padding: '6px 12px',
             borderRadius: '6px',
             fontSize: '12px',
-            fontFamily: 'Product Sans, sans-serif',
+            fontFamily: 'var(--font-gabarito), Gabarito, sans-serif',
             pointerEvents: 'none',
             zIndex: 1000,
             whiteSpace: 'nowrap',
@@ -105,7 +105,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2">
-              <h3 className={`${isCurrent ? 'text-lg' : 'text-base'} font-semibold text-black`} style={{ fontFamily: 'Product Sans, sans-serif' }}>
+              <h3 className={`${isCurrent ? 'text-lg' : 'text-base'} font-semibold text-black`} style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}>
                 {companyName}
               </h3>
               {socialLinks.length > 0 && (
@@ -128,9 +128,9 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
               {showDropdown && !isCurrent && (
                 <button 
                   onClick={toggleExpanded}
-                  className="cursor-pointer hover:bg-gray-100 rounded p-1 transition-all duration-200"
+                  className="cursor-pointer rounded p-1 transition-all duration-300 ease-smooth hover:bg-gray-100"
                 >
-                  <div className={`transition-transform duration-200 ${isExpanded ? 'rotate-180' : 'rotate-0'}`}>
+                  <div className={`transition-transform duration-300 ease-smooth ${isExpanded ? 'rotate-180' : 'rotate-0'}`}>
                     <FaChevronDown className="w-3 h-3 text-gray-400" />
                   </div>
                 </button>
@@ -138,13 +138,13 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
               {isCurrent && (
                 <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-green-100 rounded-full">
                   <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
-                  <p className="text-xs text-green-600 font-medium" style={{ fontFamily: 'Product Sans, sans-serif' }}>
+                  <p className="text-xs text-green-600 font-medium" style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}>
                     Currently working
                   </p>
                 </div>
               )}
             </div>
-            <p className="text-gray-600 text-sm" style={{ fontFamily: 'Product Sans, sans-serif' }}>
+            <p className="text-gray-600 text-sm" style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}>
               {position}
             </p>
           </div>
@@ -152,10 +152,10 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
         {/* Date & Location */}
         <div className="text-right">
-          <p style={{ fontFamily: 'Product Sans, sans-serif', color: '#909092', fontSize: '16px', fontWeight: '500' }}>
+          <p style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif', color: '#909092', fontSize: '16px', fontWeight: '500' }}>
             {startDate} - {endDate}
           </p>
-          <p style={{ fontFamily: 'Product Sans, sans-serif', color: '#909092', fontSize: '16px' }}>
+          <p style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif', color: '#909092', fontSize: '16px' }}>
             {location}
           </p>
         </div>
@@ -163,12 +163,12 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
       {/* Technologies & Tools */}
       <div 
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isExpanded && technologies.length > 0 ? 'max-h-96 opacity-100 mb-6 mt-4' : 'max-h-0 opacity-0 mb-0 mt-0'
+        className={`overflow-hidden transition-all duration-500 ease-smooth ${
+          isExpanded && technologies.length > 0 ? 'max-h-[2000px] opacity-100 mb-6 mt-4' : 'max-h-0 opacity-0 mb-0 mt-0'
         }`}
       >
         <div>
-          <h4 className="text-[16px] font-semibold text-black mb-3" style={{ fontFamily: 'Product Sans, sans-serif' }}>
+          <h4 className="text-[16px] font-semibold text-black mb-3" style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}>
             Technologies & Tools
           </h4>
           <div className="flex flex-wrap gap-2">
@@ -182,7 +182,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                 style={{ backgroundColor: 'color-mix(in oklab,var(--color-black) 5%,transparent)' }}
               >
                 <tech.icon className={`w-4 h-4 ${tech.iconColor}`} />
-                <span className="font-bold text-black" style={{ fontFamily: 'Product Sans, sans-serif', fontSize: '14px' }}>
+                <span className="font-bold text-black" style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif', fontSize: '14px' }}>
                   {tech.name}
                 </span>
               </a>
@@ -193,8 +193,8 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
       {/* Responsibilities */}
       <div 
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isExpanded && responsibilities.length > 0 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        className={`overflow-hidden transition-all duration-500 ease-smooth ${
+          isExpanded && responsibilities.length > 0 ? 'max-h-[4000px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <div>
@@ -202,7 +202,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
             {responsibilities.map((responsibility, index) => (
               <li key={index} className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-gray-400 rounded-full mt-2 shrink-0"></div>
-                <p style={{ fontFamily: 'Product Sans, sans-serif', color: '#909092', fontSize: '16px' }}>
+                <p style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif', color: '#909092', fontSize: '16px' }}>
                   {responsibility}
                 </p>
               </li>

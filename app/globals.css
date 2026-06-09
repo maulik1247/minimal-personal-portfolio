@@ -8,12 +8,38 @@
     }
   }
 
+  @keyframes wave-bar {
+    0%,
+    100% {
+      transform: scaleY(0.35);
+    }
+    50% {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes music-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes movies-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-gabarito);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -48,9 +74,34 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+  --animate-wave-bar: wave-bar 0.9s ease-in-out infinite;
+  --animate-aurora: aurora 8s ease-in-out infinite alternate;
+  @keyframes aurora {
+  0% {
+    background-position: 0% 50%;
+    transform: rotate(-5deg) scale(0.9);
+        }
+  25% {
+    background-position: 50% 100%;
+    transform: rotate(5deg) scale(1.1);
+        }
+  50% {
+    background-position: 100% 50%;
+    transform: rotate(-3deg) scale(0.95);
+        }
+  75% {
+    background-position: 50% 0%;
+    transform: rotate(3deg) scale(1.05);
+        }
+  100% {
+    background-position: 0% 50%;
+    transform: rotate(-5deg) scale(0.9);
+        }
+    }
 }
 
 :root {
+  --framer-font-family-bold: var(--font-gabarito), "Gabarito", sans-serif;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -120,11 +171,115 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
     overflow-x: hidden;
+    font-family: var(--font-gabarito), Gabarito, sans-serif;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .hero-shell {
+    @apply p-16 flex flex-col items-center text-center;
+  }
+
+  .section-shell {
+    @apply pt-16 px-16 pb-5 flex flex-col gap-8;
+  }
+
+  .section-shell-last {
+    @apply pt-16 px-16 pb-16 flex flex-col gap-8;
+  }
+
+  .section-eyebrow {
+    @apply text-xs font-medium tracking-[0.2em] text-gray-400 uppercase;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold text-black tracking-tight;
+  }
+
+  .body-text {
+    @apply text-base text-gray-500 leading-relaxed;
+  }
+
+  .wave-bar {
+    transform-origin: bottom;
+    animation: wave-bar 0.9s ease-in-out infinite;
+  }
+
+  .wave-bar-paused {
+    transform-origin: bottom;
+    transform: scaleY(0.35);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ease-smooth {
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .interactive-card {
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .interactive-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px -8px rgb(0 0 0 / 0.1);
+  }
+
+  .interactive-image {
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .group:hover .interactive-image {
+    transform: scale(1.03);
+  }
+
+  .btn-smooth {
+    transition:
+      background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .btn-smooth:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn-smooth:active {
+    transform: translateY(0);
   }
 }

@@ -11,7 +11,7 @@ const BoldText: React.FC<BoldTextProps> = ({ text, className = '', style = {} })
     <span 
       className={`text-[18px] font-bold ${className}`} 
       style={{ 
-        fontFamily: 'Product Sans, sans-serif', 
+        fontFamily: 'var(--font-gabarito), Gabarito, sans-serif',
         color: 'oklch(55.6% 0 0)', 
         ...style 
       }}

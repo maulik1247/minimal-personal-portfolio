@@ -55,7 +55,7 @@ export default function TechStackScroll() {
           {techIcons.map((tech, index) => (
             <tech.icon 
               key={`first-${index}`} 
-              className={`w-12 h-12 ${tech.color} hover:scale-110 transition-transform cursor-pointer`} 
+              className={`w-12 h-12 ${tech.color} cursor-pointer transition-transform duration-300 ease-smooth hover:scale-110`} 
             />
           ))}
           
@@ -63,7 +63,7 @@ export default function TechStackScroll() {
           {techIcons.map((tech, index) => (
             <tech.icon 
               key={`second-${index}`} 
-              className={`w-12 h-12 ${tech.color} hover:scale-110 transition-transform cursor-pointer`} 
+              className={`w-12 h-12 ${tech.color} cursor-pointer transition-transform duration-300 ease-smooth hover:scale-110`} 
             />
           ))}
         </div>

@@ -1,66 +1,70 @@
 "use client"
 
 import React from 'react'
-import { SiReact, SiNextdotjs, SiJavascript, SiTypescript, SiVuedotjs, SiNodedotjs, SiAngular, SiPostgresql, SiTailwindcss, SiPython, SiMongodb, SiDocker, SiGit, SiFigma, SiVercel, SiBun } from 'react-icons/si'
+import dynamic from 'next/dynamic'
 import TechStackScroll from './TechStackScroll'
+import MotionReveal, { MotionStagger, MotionStaggerItem } from './MotionReveal'
+
+const PixelatedCanvas = dynamic(
+  () => import('@/components/ui/pixelated-canvas').then((mod) => mod.PixelatedCanvas),
+  {
+    ssr: false,
+    loading: () => (
+      <img
+        src="/profile-picture.png"
+        alt="Maulik"
+        className="h-full w-full rounded-2xl object-cover"
+      />
+    ),
+  }
+)
 
 export default function AboutSection() {
   return (
-    <section style={{ backgroundColor: 'white' }}>
-      <div className="p-16 flex flex-col gap-8">
-        {/* Header */}
-        <div className="text-left flex flex-col gap-2">
-          <div className="text-sm font-medium text-gray-500" style={{ fontFamily: 'Product Sans, sans-serif' }}>
-            Featured
-          </div>
-          <h2 className="font-bold text-black" style={{ fontFamily: 'Product Sans, sans-serif', fontSize: '24px' }}>
-            About
-          </h2>
-        </div>
+    <section className="bg-white">
+      <div className="section-shell">
+        <MotionReveal>
+          <h2 className="section-title">About</h2>
+        </MotionReveal>
 
-        {/* Content Container */}
-        <div className="max-w-6xl">
-          {/* Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            {/* Left Column - Image */}
-            <div className="flex justify-center">
-              <div className="w-96 h-96 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center overflow-hidden">
-                <img 
-                  src="https://i.pinimg.com/1200x/df/1f/f5/df1ff5652a76bd055848ac13371edada.jpg" 
-                  alt="Maulik" 
-                  className="w-full h-full object-cover rounded-2xl"
-                />
-              </div>
+        <MotionStagger className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2">
+          <MotionStaggerItem className="flex justify-center">
+            <div className="h-96 w-96 overflow-hidden rounded-2xl transition-transform duration-500 ease-smooth hover:scale-[1.02]">
+              <PixelatedCanvas
+                src="/profile-picture.png"
+                width={384}
+                height={384}
+                cellSize={3}
+                dotScale={1}
+                shape="square"
+                dropoutStrength={0}
+                tintStrength={0}
+                backgroundColor="#ffffff"
+                objectFit="cover"
+                sampleAverage
+                interactive
+                distortionMode="swirl"
+                distortionStrength={3}
+                distortionRadius={70}
+                className="h-full w-full rounded-2xl"
+              />
             </div>
+          </MotionStaggerItem>
 
-            {/* Right Column - Content */}
-            <div className="space-y-4 flex flex-col justify-start">
-              {/* Name */}
-              <h3 className="text-3xl font-bold text-black" style={{ fontFamily: 'Product Sans, sans-serif' }}>
-                Maulik Tanna
-              </h3>
-              
-              {/* Description */}
-              <div className="space-y-3">
-                <p className="text-base text-gray-600 leading-relaxed" style={{ fontFamily: 'Product Sans, sans-serif' }}>
-                  I'm a Full Stack web developer and Open Source Contributor, I love building products to solve real-world problems. <br/><br/>
+          <MotionStaggerItem className="flex flex-col gap-6">
+            <p className="body-text">
+              I&apos;m Maulik — a product manager who&apos;s been employee #2 at an AI-native SaaS startup, which means I&apos;ve done everything from writing PRDs to personally onboarding enterprise clients at 11pm.
+              <br />
+              <br />
+              I specialize in workflow automation, LLM-powered products, and enterprise B2B systems. I like finding the ugly process nobody has documented and turning it into something that actually scales.
+            </p>
 
-                  I thrive on transforming ideas into reality, whether it's crafting digital interfaces, designing immersive visuals, or building websites that feel effortless to use.
-                </p>
-              </div>
-
-              {/* Skills Section */}
-              <div className="space-y-3">
-                <h4 className="text-lg font-bold text-black" style={{ fontFamily: 'Product Sans, sans-serif' }}>
-                  Skills
-                </h4>
-                
-                {/* Tech Stack Scroll */}
-                <TechStackScroll />
-              </div>
+            <div className="space-y-3">
+              <h4 className="text-lg font-bold text-black">Skills</h4>
+              <TechStackScroll />
             </div>
-          </div>
-        </div>
+          </MotionStaggerItem>
+        </MotionStagger>
       </div>
     </section>
   )

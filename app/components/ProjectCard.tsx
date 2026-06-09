@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
+import Link from 'next/link'
 import { CiGlobe } from 'react-icons/ci'
 import { FiGithub } from 'react-icons/fi'
 import { IoArrowForwardOutline } from 'react-icons/io5'
@@ -32,7 +33,7 @@ export default function ProjectCard({
   status,
   liveUrl,
   githubUrl,
-  detailsUrl = "#"
+  detailsUrl = '#',
 }: ProjectCardProps) {
   const [tooltip, setTooltip] = useState<{ text: string; x: number; y: number } | null>(null)
   const showTooltip = (text: string, event: React.MouseEvent) => {
@@ -50,15 +51,7 @@ export default function ProjectCard({
 
   return (
     <div
-      style={{
-        borderRadius: '16px',
-        backgroundColor: 'white',
-        border: '1px solid #e5e5e5',
-        overflow: 'hidden',
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'relative'
-      }}
+      className="interactive-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white"
     >
       {/* Tooltip */}
       {tooltip && (
@@ -73,7 +66,7 @@ export default function ProjectCard({
             padding: '6px 12px',
             borderRadius: '6px',
             fontSize: '12px',
-            fontFamily: 'Product Sans, sans-serif',
+            fontFamily: 'var(--font-gabarito), Gabarito, sans-serif',
             pointerEvents: 'none',
             zIndex: 1000,
             whiteSpace: 'nowrap',
@@ -85,21 +78,17 @@ export default function ProjectCard({
         </div>
       )}
       {/* Image Area */}
-      <div
-        style={{
-          position: 'relative',
-          borderRadius: '16px 16px 0 0'
-        }}
-      >
+      <div className="overflow-hidden" style={{ position: 'relative', borderRadius: '16px 16px 0 0' }}>
         <img
           src={image}
           alt={title}
+          className="interactive-image"
           style={{
             width: '100%',
             borderRadius: '16px 16px 0 0',
             objectFit: 'cover',
             height: '200px',
-            display: 'block'
+            display: 'block',
           }}
         />
       </div>
@@ -109,12 +98,8 @@ export default function ProjectCard({
         {/* Title with Icons */}
         <div className="flex justify-between items-center">
           <h3
-            className="font-bold"
-            style={{
-              fontFamily: 'Product Sans, sans-serif',
-              fontSize: '20px',
-              color: '#1a1a1a'
-            }}
+            className="text-xl font-bold text-black"
+            style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}
           >
             {title}
           </h3>
@@ -155,7 +140,7 @@ export default function ProjectCard({
         {/* Description */}
         <p
           style={{
-            fontFamily: 'Product Sans, sans-serif',
+            fontFamily: 'var(--font-gabarito), Gabarito, sans-serif',
             fontSize: '16px',
             lineHeight: '1.5',
             color: '#909092'
@@ -168,7 +153,7 @@ export default function ProjectCard({
           <div>
             <p
               style={{
-                fontFamily: 'Product Sans, sans-serif',
+                fontFamily: 'var(--font-gabarito), Gabarito, sans-serif',
                 fontSize: '14px',
                 color: '#909092',
                 marginBottom: '14px'
@@ -197,7 +182,7 @@ export default function ProjectCard({
               padding: '6px 12px',
               borderRadius: '12px',
               fontSize: '12px',
-              fontFamily: 'Product Sans, sans-serif',
+              fontFamily: 'var(--font-gabarito), Gabarito, sans-serif',
               fontWeight: '500',
               backgroundColor: status === 'operational' ? '#dcfce7' : '#fef2f2',
               color: '#1a1a1a',
@@ -216,19 +201,19 @@ export default function ProjectCard({
             />
             {status === 'operational' ? 'All Systems Operational' : 'Building'}
           </span>
-          <a
+          <Link
             href={detailsUrl}
-            className="flex items-center gap-1"
+            className="btn-smooth flex items-center gap-1 hover:gap-2"
             style={{
               color: '#1a1a1a',
               fontSize: '14px',
-              fontFamily: 'Product Sans, sans-serif',
-              textDecoration: 'none'
+              fontFamily: 'var(--font-gabarito), Gabarito, sans-serif',
+              textDecoration: 'none',
             }}
           >
             View Details
             <IoArrowForwardOutline style={{ fontSize: '16px' }} />
-          </a>
+          </Link>
         </div>
       </div>
     </div>
