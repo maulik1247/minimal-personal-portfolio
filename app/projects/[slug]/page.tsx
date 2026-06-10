@@ -35,7 +35,7 @@ export default async function ProjectDetailPage({
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      <article className="mx-auto max-w-4xl px-6 py-12 md:px-12">
+      <article className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 md:px-12">
         <MotionReveal y={12}>
         <Link
           href="/projects"
@@ -94,7 +94,7 @@ export default async function ProjectDetailPage({
           </div>
         </div>
 
-        <h1 className="mb-4 text-4xl font-bold leading-tight text-black md:text-5xl" style={font}>
+        <h1 className="mb-4 text-3xl font-bold leading-tight text-black sm:text-4xl md:text-5xl" style={font}>
           {project.title}
         </h1>
 

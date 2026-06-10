@@ -32,7 +32,7 @@ export default function ToolkitSection() {
       <div className="section-shell-last">
         <h2 className="section-title">My Toolkit</h2>
 
-        <div className="grid w-full max-w-3xl grid-cols-3 gap-3">
+        <div className="grid w-full max-w-3xl grid-cols-2 gap-3 sm:grid-cols-3">
           {toolkitCategories.map((category) => (
             <ToolkitCard key={category.title} {...category} />
           ))}

@@ -29,7 +29,7 @@ export default function ProjectsSection({ fullPage = false }: ProjectsSectionPro
           <div className="flex flex-col gap-12">
             <MotionReveal delay={0.05}>
               <h2
-                className="text-2xl font-bold text-black"
+                className="section-title"
                 style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}
               >
                 All Projects{' '}

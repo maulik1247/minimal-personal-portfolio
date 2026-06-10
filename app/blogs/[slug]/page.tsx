@@ -24,7 +24,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
       <Navbar />
       
       {/* Main Content */}
-      <article className="max-w-4xl mx-auto px-6 md:px-12 py-12">
+      <article className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 md:px-12">
         {/* Back Button */}
         <MotionReveal y={12}>
         <Link 
@@ -39,7 +39,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
 
         <MotionReveal delay={0.05}>
         <h1 
-          className="text-4xl md:text-5xl font-bold text-black mb-4 leading-tight"
+          className="mb-4 text-3xl font-bold leading-tight text-black sm:text-4xl md:text-5xl"
           style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}
         >
           {blog.title}

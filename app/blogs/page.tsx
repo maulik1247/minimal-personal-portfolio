@@ -10,7 +10,7 @@ export default function BlogsPage() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="mx-auto max-w-6xl px-16 pb-16 pt-16">
+      <div className="page-shell">
         <BlogsSection fullPage />
       </div>
     </div>

@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
-    "start": "next start"
+    "start": "next start",
+    "refresh-movies": "tsx scripts/refresh-movie-cache.ts"
   },
   "dependencies": {
     "@heroui/avatar": "^2.2.22",

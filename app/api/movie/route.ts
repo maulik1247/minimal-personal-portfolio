@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getCachedMovieDetails } from '@/lib/movieDetailsCache'
 import type { MovieDetails } from '@/lib/movieTypes'
 
 type OmdbResponse = {
@@ -47,6 +48,20 @@ function mapOmdb(data: OmdbResponse): MovieDetails {
   }
 }
 
+async function fetchFromOmdb(imdbId: string, apiKey: string): Promise<MovieDetails | null> {
+  const response = await fetch(
+    `https://www.omdbapi.com/?i=${encodeURIComponent(imdbId)}&plot=full&apikey=${apiKey}`,
+    { next: { revalidate: 86400 } }
+  )
+
+  if (!response.ok) return null
+
+  const data = (await response.json()) as OmdbResponse
+  if (data.Response === 'False' || data.Error) return null
+
+  return mapOmdb(data)
+}
+
 export async function GET(request: NextRequest) {
   const imdbId = request.nextUrl.searchParams.get('imdbId')
 
@@ -54,28 +69,27 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'imdbId is required' }, { status: 400 })
   }
 
+  const cached = getCachedMovieDetails(imdbId)
   const apiKey = process.env.OMDB_API_KEY
+
   if (!apiKey) {
+    if (cached) {
+      return NextResponse.json(cached)
+    }
     return NextResponse.json(
-      { error: 'OMDB_API_KEY is not configured. Add it to .env.local' },
-      { status: 500 }
+      { error: 'Movie details not found. Add OMDB_API_KEY or refresh the static cache.' },
+      { status: 404 }
     )
   }
 
-  const response = await fetch(
-    `https://www.omdbapi.com/?i=${encodeURIComponent(imdbId)}&plot=full&apikey=${apiKey}`,
-    { next: { revalidate: 86400 } }
-  )
-
-  if (!response.ok) {
-    return NextResponse.json({ error: 'Failed to fetch movie data' }, { status: 502 })
+  const live = await fetchFromOmdb(imdbId, apiKey)
+  if (live) {
+    return NextResponse.json(live)
   }
 
-  const data = (await response.json()) as OmdbResponse
-
-  if (data.Response === 'False' || data.Error) {
-    return NextResponse.json({ error: data.Error ?? 'Movie not found' }, { status: 404 })
+  if (cached) {
+    return NextResponse.json(cached)
   }
 
-  return NextResponse.json(mapOmdb(data))
+  return NextResponse.json({ error: 'Movie not found' }, { status: 404 })
 }

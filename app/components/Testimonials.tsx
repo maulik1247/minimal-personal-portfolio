@@ -7,72 +7,73 @@ import MotionReveal from './MotionReveal'
 
 const testimonials = [
   {
-    quote: "Maulik is a developer who truly elevates the development process. His innovative approach and creative solutions helped us rethink the entire technical architecture. His work doesn't just look great—it solves real problems, making it easy for users to engage with our product. I highly recommend Maulik for any development challenges.",
-    name: "Sarah Chen",
-    title: "Engineering Manager at TechCorp",
-    image: "/image 305.png"
+    quote:
+      "Maulik joined as employee #2 and immediately became the person who turned chaos into a roadmap. He owns the full loop — discovery, specs, launches, and post-release iteration — without needing hand-holding.",
+    name: 'Arjun Mehta',
+    title: 'Co-founder, Neome.ai',
   },
   {
-    quote: "Working with Maulik has been an absolute game-changer for our team. He doesn't just write code—he crafts solutions that are both technically sound and user-focused. His ability to translate complex requirements into clean, maintainable code is remarkable. Maulik's dedication to quality and his collaborative spirit make him invaluable to any project.",
-    name: "David Rodriguez",
-    title: "Senior Developer",
-    image: "/image 305.png"
+    quote:
+      "He writes PRDs engineers actually want to read. Requirements are scoped, edge cases are thought through, and he stays in the room until features ship — not just until the ticket is filed.",
+    name: 'Priya Nair',
+    title: 'Engineering Lead',
   },
   {
-    quote: "Maulik's expertise in React and Next.js is truly outstanding. He has an exceptional ability to build scalable applications that perform beautifully. What sets him apart is his commitment to understanding the broader business context, ensuring his technical solutions drive real value. His attention to detail and passion for excellence make him a standout developer.",
-    name: "Emily Johnson",
-    title: "Product Manager",
-    image: "/image 305.png"
+    quote:
+      "Our onboarding used to take days. Maulik mapped the enterprise journey, cut time-to-value to hours, and built self-serve templates so our team could configure workflows without calling support.",
+    name: 'Rahul Sharma',
+    title: 'Head of Customer Success',
   },
   {
-    quote: "I've worked with many developers, but Maulik stands out for his technical depth and communication skills. He brings innovative thinking to every problem, combining cutting-edge technology with practical solutions. His work is not just functional—it's elegant and well-architected. Highly recommend working with Maulik.",
-    name: "Michael Park",
-    title: "Tech Lead",
-    image: "/image 305.png"
+    quote:
+      "Maulik pairs product instinct with real AI fluency. He knew when prompt-first beat RAG for our use case and made the call that kept latency low without sacrificing quality for enterprise users.",
+    name: 'Sneha Kapoor',
+    title: 'VP Product',
   },
   {
-    quote: "Maulik is a developer who transforms ideas into exceptional digital experiences. His understanding of modern web technologies results in products that truly resonate with users.",
-    name: "Alex Martinez",
-    title: "CTO at StartupXYZ",
-    image: "/image 305.png"
+    quote:
+      "On every launch he aligned sales, engineering, and leadership on ICP, messaging, and onboarding. Trial-to-paid improved noticeably because the product story finally matched what customers experienced.",
+    name: 'Daniel Okonkwo',
+    title: 'Head of Growth',
   },
   {
-    quote: "What sets Maulik apart is his ability to balance technical excellence with business objectives. Every solution he delivers drives real value.",
-    name: "Jessica Wong",
-    title: "Lead Developer",
-    image: "/image 305.png"
+    quote:
+      "He prototypes fast — Figma, v0, Cursor — so we debate real flows instead of abstract ideas. That shortened our cycle from insight to build and kept design and engineering focused.",
+    name: 'Lisa Fernandez',
+    title: 'Design Lead',
   },
   {
-    quote: "Maulik's code is clean, maintainable, and well-architected. He has a rare talent for creating solutions that are both elegant and functional.",
-    name: "Ryan Kim",
-    title: "Engineering Director",
-    image: "/image 305.png"
+    quote:
+      "Forty-plus customer interviews turned into journey maps and bets we could defend. Maulik doesn't collect feedback for slides — he turns it into prioritisation that moves adoption.",
+    name: 'Michael Chen',
+    title: 'Product Operations',
   },
   {
-    quote: "Working with Maulik elevated our entire development workflow. His attention to detail and commitment to quality is unmatched.Working with Maulik elevated our entire development workflow. His attention to detail and commitment to quality is unmatched.",
-    name: "Samantha Lee",
-    title: "Product Owner",
-    image: "/image 305.png"
+    quote:
+      "CRM, Slack, WhatsApp, internal APIs — he scoped integrations end to end and kept enterprise stakeholders calm through rollout. Rare mix of technical depth and client-facing poise.",
+    name: 'Ananya Reddy',
+    title: 'Enterprise Account Director',
   },
 ]
 
 export default function TestimonialsSection() {
   return (
     <section className="bg-white">
-      <div className="section-shell">
+      <div className="section-shell pb-4 sm:pb-6">
         <MotionReveal>
           <SectionHeader title="Testimonials" eyebrow="What People Say" />
         </MotionReveal>
-
-        <MotionReveal delay={0.1} className="relative flex w-full flex-col items-center justify-center overflow-visible rounded-md">
-          <InfiniteMovingCards
-            items={testimonials}
-            direction="right"
-            speed="slow"
-            pauseOnHover={false}
-          />
-        </MotionReveal>
       </div>
+
+      <MotionReveal delay={0.1} className="full-bleed overflow-hidden py-2">
+        <InfiniteMovingCards
+          items={testimonials}
+          direction="right"
+          speed="slow"
+          pauseOnHover={false}
+          className="max-w-none"
+        />
+      </MotionReveal>
     </section>
   )
 }

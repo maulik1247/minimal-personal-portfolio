@@ -29,7 +29,7 @@ export default function AboutSection() {
 
         <MotionStagger className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2">
           <MotionStaggerItem className="flex justify-center">
-            <div className="h-96 w-96 overflow-hidden rounded-2xl transition-transform duration-500 ease-smooth hover:scale-[1.02]">
+            <div className="mx-auto aspect-square w-full max-w-[280px] overflow-hidden rounded-2xl transition-transform duration-500 ease-smooth sm:max-w-[340px] md:max-w-96 md:hover:scale-[1.02]">
               <PixelatedCanvas
                 src="/profile-picture.png"
                 width={384}

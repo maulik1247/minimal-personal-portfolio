@@ -4,7 +4,7 @@ import TechStackScroll from './TechStackScroll'
 export default function TechStackSection() {
   return (
     <section style={{ backgroundColor: 'white' }}>
-      <div className="pt-16 px-16 pb-5">
+      <div className="section-shell">
         {/* Header */}
         <div className="text-left">
           <div className="text-sm font-medium text-gray-500 mb-2" style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}>

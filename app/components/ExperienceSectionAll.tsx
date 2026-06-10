@@ -9,14 +9,9 @@ export default function ExperienceSectionAll() {
     <section style={{ backgroundColor: 'white' }}>
       <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-3 text-center">
-          <h2
-            className="text-[48px] font-bold text-black"
-            style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}
-          >
-            Work Experience
-          </h2>
+          <h2 className="page-title">Work Experience</h2>
           <p
-            className="text-lg text-[#909092]"
+            className="text-base text-[#909092] sm:text-lg"
             style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}
           >
             5.6 years building AI-native B2B SaaS products and enterprise workflow platforms.
@@ -26,7 +21,7 @@ export default function ExperienceSectionAll() {
 
         <div className="flex flex-col gap-12">
           <h3
-            className="text-2xl font-bold text-black"
+            className="section-title"
             style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}
           >
             All Experiences{' '}

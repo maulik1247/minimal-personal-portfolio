@@ -1,7 +1,49 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+
+type TestimonialItem = {
+  quote: string;
+  name: string;
+  title: string;
+  image?: string;
+};
+
+function TestimonialCard({ item }: { item: TestimonialItem }) {
+  return (
+    <li className="relative flex h-[248px] w-[340px] max-w-full shrink-0 self-stretch rounded-2xl border border-zinc-200 bg-[#f2f2f2] px-7 py-6 md:h-[248px] md:w-[400px]">
+      <blockquote className="flex h-full min-h-0 flex-col">
+        <p className="line-clamp-5 flex-1 text-sm leading-[1.65] font-normal text-neutral-800">
+          {item.quote}
+        </p>
+        <div className="mt-5 flex shrink-0 flex-row items-center gap-3">
+          {item.image ? (
+            <img
+              src={item.image}
+              alt={item.name}
+              className="h-10 w-10 shrink-0 rounded-full object-cover"
+            />
+          ) : (
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white ring-1 ring-black/5">
+              <span className="text-sm font-semibold text-neutral-800">
+                {item.name.charAt(0)}
+              </span>
+            </div>
+          )}
+          <span className="flex min-w-0 flex-col gap-0.5">
+            <span className="truncate text-sm font-semibold leading-snug text-neutral-800">
+              {item.name}
+            </span>
+            <span className="truncate text-sm leading-snug font-normal text-neutral-500">
+              {item.title}
+            </span>
+          </span>
+        </div>
+      </blockquote>
+    </li>
+  );
+}
 
 export const InfiniteMovingCards = ({
   items,
@@ -10,151 +52,46 @@ export const InfiniteMovingCards = ({
   pauseOnHover = true,
   className,
 }: {
-  items: {
-    quote: string;
-    name: string;
-    title: string;
-    image?: string;
-  }[];
+  items: TestimonialItem[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
   className?: string;
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
-  const scrollerRef = React.useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    addAnimation();
-  }, []);
-  
-  function addAnimation() {
-    getDirection();
-    getSpeed();
-  }
-  const getDirection = () => {
-    if (containerRef.current) {
-      if (direction === "left") {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "forwards",
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "reverse",
-        );
-      }
-    }
-  };
-  const getSpeed = () => {
-    if (containerRef.current) {
-      if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "20s");
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s");
-      } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
-      }
-    }
-  };
+    if (!containerRef.current) return;
+
+    containerRef.current.style.setProperty(
+      "--animation-direction",
+      direction === "left" ? "forwards" : "reverse",
+    );
+
+    const duration =
+      speed === "fast" ? "20s" : speed === "normal" ? "40s" : "80s";
+    containerRef.current.style.setProperty("--animation-duration", duration);
+  }, [direction, speed]);
+
   return (
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20 max-w-7xl overflow-visible",
+        "scroller relative z-20 w-full overflow-visible",
         className,
       )}
     >
       <ul
-        ref={scrollerRef}
         className={cn(
-          "flex w-max min-w-full shrink-0 flex-nowrap gap-4 items-start animate-scroll",
+          "flex w-max min-w-full shrink-0 flex-nowrap items-stretch gap-4 animate-scroll",
           pauseOnHover && "hover:[animation-play-state:paused]",
         )}
       >
-        {/* First set of items */}
         {items.map((item, idx) => (
-          <li
-            className="relative w-[350px] max-w-full shrink-0 rounded-2xl border border-b-0 border-zinc-200 px-8 py-6 md:w-[450px] dark:border-zinc-700 self-start"
-            style={{ backgroundColor: '#f2f2f2' }}
-            key={`first-${item.name}-${idx}`}
-          >
-            <blockquote>
-              <div
-                aria-hidden="true"
-                className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
-              ></div>
-              <span className="relative z-20 text-sm leading-[1.6] font-normal text-neutral-800 dark:text-gray-100">
-                {item.quote}
-              </span>
-              <div className="relative z-20 mt-6 flex flex-row items-center gap-3">
-                {item.image ? (
-                  <img 
-                    src={item.image} 
-                    alt={item.name}
-                    className="w-10 h-10 rounded-full shrink-0 object-cover"
-                  />
-                ) : (
-                  <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center shrink-0">
-                    <span className="text-neutral-800 font-semibold text-sm">
-                      {item.name.charAt(0)}
-                    </span>
-                  </div>
-                )}
-                <span className="flex flex-col gap-1">
-                  <span className="text-sm leading-[1.6] font-semibold text-neutral-800 dark:text-gray-100">
-                    {item.name}
-                  </span>
-                  <span className="text-sm leading-[1.6] font-normal text-neutral-500 dark:text-gray-400">
-                    {item.title}
-                  </span>
-                </span>
-              </div>
-            </blockquote>
-          </li>
+          <TestimonialCard key={`first-${item.name}-${idx}`} item={item} />
         ))}
-        
-        {/* Duplicate set for seamless loop */}
         {items.map((item, idx) => (
-          <li
-            className="relative w-[350px] max-w-full shrink-0 rounded-2xl border border-b-0 border-zinc-200 px-8 py-6 md:w-[450px] dark:border-zinc-700 self-start"
-            style={{ backgroundColor: '#f2f2f2' }}
-            key={`second-${item.name}-${idx}`}
-          >
-            <blockquote>
-              <div
-                aria-hidden="true"
-                className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
-              ></div>
-              <span className="relative z-20 text-sm leading-[1.6] font-normal text-neutral-800 dark:text-gray-100">
-                {item.quote}
-              </span>
-              <div className="relative z-20 mt-6 flex flex-row items-center gap-3">
-                {item.image ? (
-                  <img 
-                    src={item.image} 
-                    alt={item.name}
-                    className="w-10 h-10 rounded-full shrink-0 object-cover"
-                  />
-                ) : (
-                  <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center shrink-0">
-                    <span className="text-neutral-800 font-semibold text-sm">
-                      {item.name.charAt(0)}
-                    </span>
-                  </div>
-                )}
-                <span className="flex flex-col gap-1">
-                  <span className="text-sm leading-[1.6] font-semibold text-neutral-800 dark:text-gray-100">
-                    {item.name}
-                  </span>
-                  <span className="text-sm leading-[1.6] font-normal text-neutral-500 dark:text-gray-400">
-                    {item.title}
-                  </span>
-                </span>
-              </div>
-            </blockquote>
-          </li>
+          <TestimonialCard key={`second-${item.name}-${idx}`} item={item} />
         ))}
       </ul>
     </div>

@@ -10,7 +10,7 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="mx-auto max-w-6xl px-16 pb-16 pt-16">
+      <div className="page-shell">
         <ProjectsSection fullPage />
       </div>
     </div>

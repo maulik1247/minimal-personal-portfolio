@@ -93,18 +93,18 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         </div>
       )}
       {/* Company Header */}
-      <div className="flex items-start justify-between">
-        <div className="flex items-start gap-4">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+        <div className="flex min-w-0 items-start gap-3 sm:gap-4">
           {/* Company Logo */}
           <div className="relative">
-            <div className={`w-16 h-16 ${iconBgColor} rounded-lg flex items-center justify-center`}>
-              <CompanyIcon className={`w-8 h-8 ${iconColor}`} />
+            <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg sm:h-16 sm:w-16 ${iconBgColor}`}>
+              <CompanyIcon className={`h-6 w-6 sm:h-8 sm:w-8 ${iconColor}`} />
             </div>
           </div>
           
           {/* Company Info */}
-          <div>
-            <div className="flex items-center gap-2">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
               <h3 className={`${isCurrent ? 'text-lg' : 'text-base'} font-semibold text-black`} style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}>
                 {companyName}
               </h3>
@@ -151,11 +151,11 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         </div>
 
         {/* Date & Location */}
-        <div className="text-right">
-          <p style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif', color: '#909092', fontSize: '16px', fontWeight: '500' }}>
+        <div className="shrink-0 text-left sm:text-right">
+          <p className="text-sm font-medium text-[#909092] sm:text-base" style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}>
             {startDate} - {endDate}
           </p>
-          <p style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif', color: '#909092', fontSize: '16px' }}>
+          <p className="text-sm text-[#909092] sm:text-base" style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}>
             {location}
           </p>
         </div>

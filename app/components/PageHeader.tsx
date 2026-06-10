@@ -8,14 +8,11 @@ type PageHeaderProps = {
 export default function PageHeader({ title, subtitle }: PageHeaderProps) {
   return (
     <div className="flex flex-col gap-3 text-center">
-      <h1
-        className="text-[48px] font-bold tracking-tight text-black"
-        style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}
-      >
+      <h1 className="page-title">
         {title}
       </h1>
       <p
-        className="text-lg text-[#909092]"
+        className="text-base text-[#909092] sm:text-lg"
         style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}
       >
         {subtitle}

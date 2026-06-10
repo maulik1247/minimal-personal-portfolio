@@ -123,9 +123,9 @@ function HeroContent({ motionEnabled = false }: { motionEnabled?: boolean }) {
         actually scale.
       </Wrapper>
 
-      <Wrapper className="flex flex-wrap justify-center gap-3 pt-2" {...wrapperProps}>
+      <Wrapper className="flex w-full max-w-md flex-col justify-center gap-3 pt-2 sm:max-w-none sm:flex-row sm:flex-wrap" {...wrapperProps}>
         <motion.button
-          className="btn-smooth inline-flex items-center gap-2 rounded-[14px] border border-black bg-white px-6 py-3.5 text-base font-medium text-black hover:bg-gray-50"
+          className="btn-smooth inline-flex w-full items-center justify-center gap-2 rounded-[14px] border border-black bg-white px-6 py-3.5 text-base font-medium text-black hover:bg-gray-50 sm:w-auto"
           {...(motionEnabled
             ? { whileHover: { scale: 1.02 }, whileTap: { scale: 0.98 }, transition: { ease: smoothEase } }
             : {})}
@@ -137,7 +137,7 @@ function HeroContent({ motionEnabled = false }: { motionEnabled?: boolean }) {
         <motion.button
           type="button"
           onClick={openContactModal}
-          className="btn-smooth inline-flex items-center gap-2 rounded-[14px] bg-neutral-900 px-6 py-3.5 text-base font-medium text-white hover:bg-neutral-700"
+          className="btn-smooth inline-flex w-full items-center justify-center gap-2 rounded-[14px] bg-neutral-900 px-6 py-3.5 text-base font-medium text-white hover:bg-neutral-700 sm:w-auto"
           {...(motionEnabled
             ? { whileHover: { scale: 1.02 }, whileTap: { scale: 0.98 }, transition: { ease: smoothEase } }
             : {})}
