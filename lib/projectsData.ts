@@ -26,6 +26,7 @@ export interface Project {
   subtitle?: string
   description: string
   image: string
+  imageFit?: 'cover' | 'contain'
   gradientBackground: string
   technologies: ProjectTech[]
   status: 'operational' | 'building'
@@ -42,7 +43,8 @@ export const projects: Project[] = [
     subtitle: 'A full-stack study platform for notes, practice, and AI-assisted learning.',
     description:
       'A comprehensive study platform with notes, flashcards, quizzes, AI chatbot, and interactive learning tools',
-    image: '/image 9.png',
+    image: '/projects/notesbuddy.png',
+    imageFit: 'contain',
     gradientBackground: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     technologies: [
       { icon: SiNextdotjs, color: 'text-black', name: 'Next.js' },
@@ -80,7 +82,8 @@ Most study tools optimize for one format. NotesBuddy optimizes for the workflow 
     subtitle: 'A Model Context Protocol server for Appwrite database operations.',
     description:
       'Model Context Protocol server for seamless Appwrite database operations with 7 powerful tools and 99.9% success rate',
-    image: '/image 301.png',
+    image: '/projects/appwrite-mcp-server.png',
+    imageFit: 'contain',
     gradientBackground: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     technologies: [
       { icon: SiTypescript, color: 'text-blue-600', name: 'TypeScript' },
@@ -115,7 +118,8 @@ The server runs at a 99.9% success rate across tool calls in production usage â€
     subtitle: 'Real-time synchronized music listening with friends.',
     description:
       'Real-time music streaming platform with synchronized playback, live chat, and social listening features',
-    image: '/image 302.png',
+    image: '/projects/syncify.png',
+    imageFit: 'contain',
     gradientBackground: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     technologies: [
       { icon: SiReact, color: 'text-blue-500', name: 'React' },
@@ -156,7 +160,8 @@ Real-time products punish small timing assumptions. Building Syncify meant think
     subtitle: 'A dating platform built around anonymous questions and authentic connection.',
     description:
       'Innovative dating platform featuring anonymous questions and authentic connections - currently in development',
-    image: '/image 303.png',
+    image: '/projects/pasandida-aurat.png',
+    imageFit: 'contain',
     gradientBackground: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
     technologies: [
       { icon: SiNextdotjs, color: 'text-black', name: 'Next.js' },

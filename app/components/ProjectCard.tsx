@@ -16,6 +16,7 @@ interface ProjectCardProps {
   title: string
   description: string
   image: string
+  imageFit?: 'cover' | 'contain'
   gradientBackground: string
   technologies: TechIcon[]
   status: 'operational' | 'building'
@@ -28,6 +29,7 @@ export default function ProjectCard({
   title,
   description,
   image,
+  imageFit = 'cover',
   gradientBackground,
   technologies,
   status,
@@ -78,11 +80,19 @@ export default function ProjectCard({
         </div>
       )}
       {/* Image Area */}
-      <div className="relative overflow-hidden rounded-t-2xl">
+      <div
+        className={`relative overflow-hidden rounded-t-2xl ${
+          imageFit === 'contain' ? 'bg-neutral-100' : ''
+        }`}
+      >
         <img
           src={image}
           alt={title}
-          className="interactive-image block h-[200px] w-full object-cover object-center"
+          className={
+            imageFit === 'contain'
+              ? 'interactive-image block h-auto w-full object-contain object-center'
+              : 'interactive-image block h-[200px] w-full object-cover object-center'
+          }
         />
       </div>
 

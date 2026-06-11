@@ -104,11 +104,19 @@ export default async function ProjectDetailPage({
           </p>
         )}
 
-        <div className="mb-8 overflow-hidden rounded-lg border border-gray-200">
+        <div
+          className={`mb-8 overflow-hidden rounded-lg border border-gray-200 ${
+            project.imageFit === 'contain' ? 'bg-neutral-100' : ''
+          }`}
+        >
           <img
             src={project.image}
             alt={project.title}
-            className="interactive-image h-[280px] w-full object-cover md:h-[360px]"
+            className={
+              project.imageFit === 'contain'
+                ? 'interactive-image h-auto w-full object-contain'
+                : 'interactive-image h-[280px] w-full object-cover md:h-[360px]'
+            }
           />
         </div>
         </MotionReveal>
@@ -153,7 +161,11 @@ export default async function ProjectDetailPage({
                   <img
                     src={related.image}
                     alt={related.title}
-                    className="h-40 w-full object-cover"
+                    className={
+                      related.imageFit === 'contain'
+                        ? 'h-auto w-full bg-neutral-100 object-contain'
+                        : 'h-40 w-full object-cover'
+                    }
                   />
                   <div className="p-4">
                     <h4
