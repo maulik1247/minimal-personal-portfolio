@@ -34,6 +34,7 @@ export default function ExperienceSectionAll() {
               <ExperienceCard
                 key={experience.companyName}
                 companyIcon={experience.companyIcon}
+                companyLogo={experience.companyLogo}
                 companyName={experience.companyName}
                 position={experience.position}
                 startDate={experience.startDate}

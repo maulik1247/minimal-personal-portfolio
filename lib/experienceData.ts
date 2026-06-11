@@ -1,6 +1,5 @@
 import { IconType } from 'react-icons'
 import { RiClaudeLine } from 'react-icons/ri'
-import { LuBuilding2 } from 'react-icons/lu'
 import { CiGlobe } from 'react-icons/ci'
 import { PiLinkedinLogoBold } from 'react-icons/pi'
 import {
@@ -8,7 +7,6 @@ import {
   SiGoogleanalytics,
   SiHubspot,
   SiJira,
-  SiN8N,
   SiNextdotjs,
   SiNotion,
   SiOpenai,
@@ -19,7 +17,8 @@ import {
 } from 'react-icons/si'
 
 export type ExperienceData = {
-  companyIcon: IconType
+  companyIcon?: IconType
+  companyLogo?: string
   companyName: string
   position: string
   startDate: string
@@ -44,14 +43,14 @@ export type ExperienceData = {
 
 export const experiences: ExperienceData[] = [
   {
-    companyIcon: SiN8N,
+    companyLogo: '/companies/neome.png',
     companyName: 'Neome.ai',
     position: 'Product Manager',
     startDate: 'July 2022',
     endDate: 'March 2026',
     location: 'India',
     isCurrent: false,
-    iconBgColor: 'bg-indigo-600',
+    iconBgColor: 'bg-white ring-1 ring-gray-200',
     iconColor: 'text-white',
     technologies: [
       { icon: SiOpenai, name: 'OpenAI', href: 'https://openai.com/', iconColor: 'text-emerald-600' },
@@ -82,14 +81,14 @@ export const experiences: ExperienceData[] = [
     ],
   },
   {
-    companyIcon: LuBuilding2,
+    companyLogo: '/companies/wolters-kluwer.png',
     companyName: 'Wolters Kluwer India',
     position: 'Quality Assurance Analyst',
     startDate: 'October 2020',
     endDate: 'June 2022',
     location: 'Remote',
     isCurrent: false,
-    iconBgColor: 'bg-slate-800',
+    iconBgColor: 'bg-white ring-1 ring-gray-200',
     iconColor: 'text-white',
     technologies: [
       { icon: SiJira, name: 'Jira', href: 'https://www.atlassian.com/software/jira', iconColor: 'text-blue-600' },

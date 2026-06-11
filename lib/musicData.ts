@@ -41,12 +41,12 @@ export const tracks: Track[] = [
     albumArt: 'https://i.scdn.co/image/ab67616d00001e02a501eb791db6baaa2c4deab8',
   },
   {
-    trackId: '0eu4C55hL6x29mmeAjytzC',
-    youtubeId: '8F2s8ivKXNY',
-    title: 'Life Goes On',
-    artist: 'Oliver Tree',
-    spotifyUrl: 'https://open.spotify.com/track/0eu4C55hL6x29mmeAjytzC',
-    albumArt: 'https://i.scdn.co/image/ab67616d00001e02bf118f32a37c18511647b54a',
+    trackId: '7MXVkk9YMctZqd1Srtv4MB',
+    youtubeId: '34Na4j8AVgA',
+    title: 'Starboy',
+    artist: 'The Weeknd & Daft Punk',
+    spotifyUrl: 'https://open.spotify.com/track/7MXVkk9YMctZqd1Srtv4MB',
+    albumArt: 'https://i.scdn.co/image/ab67616d00001e024718e2b124f79258be7bc452',
   },
   {
     trackId: '5nPbKG04fhLkIAjcPFaZq7',

@@ -19,20 +19,18 @@ function BlogCard({ blog }: { blog: Blog }) {
       className="group interactive-card relative flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white text-inherit no-underline"
     >
       {blog.image && (
-        <div className="overflow-hidden" style={{ position: 'relative', borderRadius: '16px 16px 0 0' }}>
+        <div
+          className="relative overflow-hidden rounded-t-2xl"
+          style={{ backgroundColor: imageFit === 'cover' ? '#f0f0f0' : '#ffffff' }}
+        >
           <img
             src={blog.image}
             alt={blog.title}
-            className="interactive-image"
-            style={{
-              width: '100%',
-              borderRadius: '16px 16px 0 0',
-              objectFit: imageFit,
-              height: '200px',
-              display: 'block',
-              backgroundColor: imageFit === 'cover' ? '#f0f0f0' : '#ffffff',
-              padding: imageFit === 'cover' ? '0' : '24px',
-            }}
+            className={`interactive-image block h-[200px] w-full ${
+              imageFit === 'cover'
+                ? 'object-cover object-center'
+                : 'object-contain object-center p-6'
+            }`}
           />
         </div>
       )}

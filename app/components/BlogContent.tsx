@@ -53,8 +53,12 @@ export default function BlogContent({ content }: BlogContentProps) {
           li: ({ children }) => <li className="mb-2">{children}</li>,
           img: ({ src, alt }) =>
             src ? (
-              <div className="my-12">
-                <img src={src} alt={alt || ''} className="w-full h-auto rounded-lg" />
+              <div className="my-12 overflow-hidden rounded-lg">
+                <img
+                  src={src}
+                  alt={alt || ''}
+                  className="max-h-[420px] w-full object-cover object-center"
+                />
               </div>
             ) : null,
         }}

@@ -78,18 +78,11 @@ export default function ProjectCard({
         </div>
       )}
       {/* Image Area */}
-      <div className="overflow-hidden" style={{ position: 'relative', borderRadius: '16px 16px 0 0' }}>
+      <div className="relative overflow-hidden rounded-t-2xl">
         <img
           src={image}
           alt={title}
-          className="interactive-image"
-          style={{
-            width: '100%',
-            borderRadius: '16px 16px 0 0',
-            objectFit: 'cover',
-            height: '200px',
-            display: 'block',
-          }}
+          className="interactive-image block h-[200px] w-full object-cover object-center"
         />
       </div>
 

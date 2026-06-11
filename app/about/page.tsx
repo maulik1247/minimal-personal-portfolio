@@ -3,11 +3,12 @@ import AboutSection from '../components/AboutSection'
 import MusicPlayerProvider from '../components/MusicPlayerProvider'
 import MusicCarousel from '../components/MusicCarousel'
 import ToolkitSection from '../components/ToolkitSection'
+import VideoGamesSection from '../components/VideoGamesSection'
 import MoviesCarousel from '../components/MoviesCarousel'
 
 export const metadata = {
   title: 'About | Maulik Tanna',
-  description: 'More about Maulik — background, music, and favorite films.',
+  description: 'More about Maulik — background, music, films, and favorite games.',
 }
 
 export default function AboutPage() {
@@ -19,6 +20,7 @@ export default function AboutPage() {
         <MusicCarousel />
       </MusicPlayerProvider>
       <MoviesCarousel />
+      <VideoGamesSection />
       <ToolkitSection />
     </div>
   )

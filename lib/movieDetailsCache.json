@@ -177,31 +177,6 @@
       }
     ]
   },
-  "tt33014583": {
-    "title": "Dhurandhar",
-    "year": "2025",
-    "rated": "R",
-    "released": "05 Dec 2025",
-    "runtime": "214 min",
-    "genre": "Action, Adventure, Crime",
-    "director": "Aditya Dhar",
-    "writer": "Aditya Dhar, Ojas Gautam, Shivkumar V. Panicker",
-    "actors": "Ranveer Singh, Akshaye Khanna, Sanjay Dutt",
-    "plot": "Humza moves through the shadows of Karachi with the cold detachment of a man already dead. He targets the empire of Rehman Dakait; a titan of the underworld whose reach dictates the city's pulse. To climb this ladder, Humza performs acts of calculated brutality that buy him a seat at the table. He serves two masters while feeding intelligence to the authorities through a secret conduit. When a political mentor turns on Rehman, the veteran gangster finds himself hunted by the very state apparatus that birthed him. Humza pivots toward his defining vice of reckless over-extension to protect his target. This survival instinct secures his position but creates a vacuum that invites total national ruin.",
-    "language": "Hindi",
-    "country": "India",
-    "awards": "46 wins & 35 nominations total",
-    "poster": "https://m.media-amazon.com/images/M/MV5BMzFiNTVkZjYtM2I3Yi00MGNjLWEyYTAtMGViNGExZmMzMGMzXkEyXkFqcGc@._V1_QL75_UY562_CR35,0,380,562_.jpg",
-    "imdbRating": "8.3",
-    "imdbVotes": "138,488",
-    "imdbId": "tt33014583",
-    "ratings": [
-      {
-        "source": "Internet Movie Database",
-        "value": "8.3/10"
-      }
-    ]
-  },
   "tt0816692": {
     "title": "Interstellar",
     "year": "2014",
@@ -232,6 +207,39 @@
       {
         "source": "Metacritic",
         "value": "74/100"
+      }
+    ]
+  },
+  "tt0119217": {
+    "title": "Good Will Hunting",
+    "year": "1998",
+    "rated": "R",
+    "released": "09 Jan 1998",
+    "runtime": "126 min",
+    "genre": "Drama, Romance",
+    "director": "Gus Van Sant",
+    "writer": "Matt Damon, Ben Affleck",
+    "actors": "Robin Williams, Matt Damon, Ben Affleck",
+    "plot": "A touching tale of a wayward young man who struggles to find his identity, living in a world where he can solve any problem, except the one brewing deep within himself, until one day he meets his soul mate who opens his mind and his heart.",
+    "language": "English",
+    "country": "United States",
+    "awards": "Won 2 Oscars. 25 wins & 61 nominations total",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNDdjZGQ5YzEtNTc2My00Mjc0LWFlMTctYzkwMzZlNzdiZWYzXkEyXkFqcGc@._V1_QL75_UX380_CR0,9,380,562_.jpg",
+    "imdbRating": "8.4",
+    "imdbVotes": "1,213,877",
+    "imdbId": "tt0119217",
+    "ratings": [
+      {
+        "source": "Internet Movie Database",
+        "value": "8.4/10"
+      },
+      {
+        "source": "Rotten Tomatoes",
+        "value": "97%"
+      },
+      {
+        "source": "Metacritic",
+        "value": "71/100"
       }
     ]
   }

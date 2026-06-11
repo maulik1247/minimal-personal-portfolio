@@ -10,10 +10,10 @@ const topArtists = [
     spotifyUrl: "https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b?si=c4edc016a87b4a7d"
   },
   {
-    trackId: "0eu4C55hL6x29mmeAjytzC",
-    title: "Life Goes On",
-    artist: "Oliver Tree",
-    spotifyUrl: "https://open.spotify.com/track/0eu4C55hL6x29mmeAjytzC?si=635f21a1524e4b3a"
+    trackId: "7MXVkk9YMctZqd1Srtv4MB",
+    title: "Starboy",
+    artist: "The Weeknd & Daft Punk",
+    spotifyUrl: "https://open.spotify.com/track/7MXVkk9YMctZqd1Srtv4MB"
   },
   {
     trackId: "4vVTI94F9uJ8lHNDWKv0i2",
@@ -117,29 +117,21 @@ export default function SpotifyCarousel() {
           setHoveredIndex(null)
         }}
       >
-        <div style={{ position: 'relative', display: 'inline-block', width: '100%' }}>
+        <div className="relative aspect-[2/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-neutral-200 ring-1 ring-black/10">
           <img 
             src={imageUrl || uniquePlaceholder} 
             alt={artist.title}
-            className="w-full h-48 object-cover rounded-2xl"
-            style={{ backgroundColor: '#f0f0f0' }}
+            className="absolute inset-0 h-full w-full object-cover object-center"
             onError={(e) => {
               e.currentTarget.src = uniquePlaceholder
             }}
           />
-          {/* Dark overlay on hover */}
+          <div
+            className="pointer-events-none absolute inset-0 bg-black/[0.06]"
+            aria-hidden
+          />
           {isHovered && (
-            <div
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                borderRadius: '16px'
-              }}
-            />
+            <div className="absolute inset-0 bg-black/30" />
           )}
           {/* Green play button overlay */}
           {isHovered && (
@@ -184,11 +176,14 @@ export default function SpotifyCarousel() {
           )}
         </div>
         <div className="p-3 bg-white">
-          <div className="font-bold mb-1 text-sm" style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif', color: '#1a1a1a' }}>
+          <div className="mb-1 truncate text-sm font-bold text-black" style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}>
             {artist.title}
           </div>
-          <div className="text-xs text-gray-600" style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}>
+          <div className="truncate text-xs text-gray-600" style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}>
             {artist.artist}
+          </div>
+          <div className="mt-1 truncate text-[11px] text-gray-400" style={{ fontFamily: 'var(--font-gabarito), Gabarito, sans-serif' }}>
+            Spotify
           </div>
         </div>
       </div>
@@ -205,7 +200,7 @@ export default function SpotifyCarousel() {
         </div>
 
         {/* Infinite Scroll Container */}
-        <div className="relative overflow-hidden" style={{ borderRadius: '12px', minHeight: '240px' }}>
+        <div className="relative overflow-hidden" style={{ borderRadius: '12px', minHeight: '320px' }}>
           {/* Loading Skeleton */}
           {isLoading && (
             <div className="flex gap-6 animate-pulse" style={{ 
@@ -214,7 +209,7 @@ export default function SpotifyCarousel() {
             }}>
               {topArtists.map((_, index) => (
                 <div key={index} className="shrink-0" style={{ width: '180px' }}>
-                  <div className="bg-gray-200 rounded-2xl h-48 mb-3"></div>
+                  <div className="mb-3 aspect-[2/3] w-full rounded-2xl bg-gray-200"></div>
                   <div className="bg-gray-200 h-4 rounded mb-2"></div>
                   <div className="bg-gray-200 h-3 rounded" style={{ width: '60%' }}></div>
                 </div>

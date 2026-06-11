@@ -77,14 +77,14 @@ export const favoriteMovies: FavoriteMovie[] = [
     mediaType: 'movie',
   },
   {
-    title: 'Dhurandhar',
-    year: 2025,
-    director: 'Aditya Dhar',
+    title: 'Good Will Hunting',
+    year: 1997,
+    director: 'Gus Van Sant',
     poster:
-      'https://m.media-amazon.com/images/M/MV5BMzFiNTVkZjYtM2I3Yi00MGNjLWEyYTAtMGViNGExZmMzMGMzXkEyXkFqcGc@._V1_QL75_UY562_CR35,0,380,562_.jpg',
-    imdbId: 'tt33014583',
-    imdbRating: '8.3',
-    genre: 'Action, Adventure, Crime',
+      'https://m.media-amazon.com/images/M/MV5BNDdjZGQ5YzEtNTc2My00Mjc0LWFlMTctYzkwMzZlNzdiZWYzXkEyXkFqcGc@._V1_QL75_UX380_CR0,9,380,562_.jpg',
+    imdbId: 'tt0119217',
+    imdbRating: '8.4',
+    genre: 'Drama, Romance',
     mediaType: 'movie',
   },
   {

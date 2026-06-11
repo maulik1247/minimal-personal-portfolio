@@ -5,7 +5,8 @@ import { IconType } from 'react-icons'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
 
 interface ExperienceCardProps {
-  companyIcon: IconType
+  companyIcon?: IconType
+  companyLogo?: string
   companyName: string
   position: string
   startDate: string
@@ -31,6 +32,7 @@ interface ExperienceCardProps {
 
 const ExperienceCard: React.FC<ExperienceCardProps> = ({
   companyIcon: CompanyIcon,
+  companyLogo,
   companyName,
   position,
   startDate,
@@ -97,8 +99,16 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         <div className="flex min-w-0 items-start gap-3 sm:gap-4">
           {/* Company Logo */}
           <div className="relative">
-            <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg sm:h-16 sm:w-16 ${iconBgColor}`}>
-              <CompanyIcon className={`h-6 w-6 sm:h-8 sm:w-8 ${iconColor}`} />
+            <div className={`flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg sm:h-16 sm:w-16 ${iconBgColor}`}>
+              {companyLogo ? (
+                <img
+                  src={companyLogo}
+                  alt={`${companyName} logo`}
+                  className="h-full w-full object-contain object-center p-1.5 sm:p-2"
+                />
+              ) : CompanyIcon ? (
+                <CompanyIcon className={`h-6 w-6 sm:h-8 sm:w-8 ${iconColor}`} />
+              ) : null}
             </div>
           </div>
           

@@ -25,11 +25,16 @@ function MovieCard({
         onMouseLeave={() => setIsHovered(false)}
         className="group w-full cursor-pointer text-left transition-transform duration-200 hover:scale-[1.03]"
       >
-        <div className="relative aspect-[2/3] w-full overflow-hidden rounded-2xl bg-gray-100">
+        <div className="relative aspect-[2/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-neutral-200 ring-1 ring-black/10">
           <img
             src={movie.poster}
             alt={movie.title}
-            className="h-full w-full object-cover object-center"
+            className="absolute inset-0 h-full w-full object-cover object-center"
+          />
+
+          <div
+            className="pointer-events-none absolute inset-0 bg-black/[0.06]"
+            aria-hidden
           />
 
           <span className="absolute top-2 left-2 z-10 inline-flex items-center gap-1 rounded-full bg-black/70 px-2 py-0.5 text-[10px] font-medium text-white backdrop-blur-sm">
