@@ -17,6 +17,7 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import { FaRegPaperPlane } from 'react-icons/fa'
+import { resumeUrl } from '@/lib/resumeData'
 import { useContactModal } from './AppProviders'
 import SiteLogo from './SiteLogo'
 
@@ -134,13 +135,16 @@ export default function Navbar() {
                     )
                   })}
                   <li>
-                    <button
-                      type="button"
-                      className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left text-base font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-black"
+                    <a
+                      href={resumeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setMenuOpen(false)}
+                      className="flex items-center gap-3 rounded-xl px-4 py-3 text-base font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-black"
                     >
                       <FileText className="h-5 w-5 shrink-0" />
                       My CV
-                    </button>
+                    </a>
                   </li>
                 </ul>
                 <div className="border-t border-gray-100 p-3">
@@ -177,9 +181,16 @@ export default function Navbar() {
 
           <div className="h-6 w-px bg-gray-300" />
 
-          <DockIcon tooltip="My CV">
-            <FileText className="h-5 w-5 text-gray-700 transition-colors hover:text-gray-900" />
-          </DockIcon>
+          <a
+            href={resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="My CV"
+          >
+            <DockIcon tooltip="My CV">
+              <FileText className="h-5 w-5 text-gray-700 transition-colors hover:text-gray-900" />
+            </DockIcon>
+          </a>
 
           <div className="h-6 w-px bg-gray-300" />
 
