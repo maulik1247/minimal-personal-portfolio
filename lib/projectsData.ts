@@ -1,14 +1,10 @@
 import type { ComponentType } from 'react'
 import {
-  SiAppwrite,
-  SiDocker,
-  SiGraphql,
-  SiMongodb,
+  SiCss,
+  SiHtml5,
+  SiJavascript,
   SiNextdotjs,
-  SiNodedotjs,
-  SiPrisma,
   SiReact,
-  SiRedis,
   SiTailwindcss,
   SiTypescript,
 } from 'react-icons/si'
@@ -54,7 +50,7 @@ export const projects: Project[] = [
     status: 'operational',
     liveUrl: 'https://token-lab-sandy.vercel.app/',
     githubUrl: 'https://github.com/maulik1247/Token-lab',
-    relatedProjects: ['syncify', 'appwrite-mcp-server'],
+    relatedProjects: ['field-ops', 'job-fit-analyser'],
     content: `Building AI features means making a lot of decisions that are hard to justify. Which model? What temperature? Is the variance in outputs a feature or a problem? Most teams answer these questions by running one prompt, reading the output, and going with their gut. That's not a process — it's a coin flip with extra steps.
 
 Token Lab is a prompt testing tool that makes those decisions defensible.
@@ -84,122 +80,157 @@ Most AI playgrounds are built for engineers. They're optimised for raw access �
 The gap between "we tested this" and "here's what we found" is where most AI feature decisions fall apart. Token Lab is built to close that gap.`,
   },
   {
-    slug: 'appwrite-mcp-server',
-    title: 'Appwrite MCP Server',
-    subtitle: 'A Model Context Protocol server for Appwrite database operations.',
+    slug: 'job-fit-analyser',
+    title: 'Job Fit Analyser',
+    subtitle: 'AI Career Tool',
     description:
-      'Model Context Protocol server for seamless Appwrite database operations with 7 powerful tools and 99.9% success rate',
-    image: '/projects/appwrite-mcp-server.png',
+      'Paste a job description and get a fit score, gap analysis, and role-specific advice on how to reposition your experience — before you hit send.',
+    image: '/projects/job-fit-analyser.png',
     imageFit: 'contain',
     gradientBackground: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-    technologies: [
-      { icon: SiTypescript, color: 'text-blue-600', name: 'TypeScript' },
-      { icon: SiAppwrite, color: 'text-red-600', name: 'Appwrite' },
-      { icon: SiNodedotjs, color: 'text-green-600', name: 'Node.js' },
-      { icon: SiDocker, color: 'text-blue-500', name: 'Docker' },
-    ],
-    status: 'operational',
-    liveUrl: '#',
-    githubUrl: '#',
-    relatedProjects: ['token-lab', 'syncify'],
-    content: `AI agents are only as useful as the tools they can call. This project bridges Appwrite's database layer to the Model Context Protocol — so LLMs can read, write, and query Appwrite collections through a structured, reliable interface.
-
-## The problem
-
-Developers using AI coding assistants often want their agent to interact with real backend data. Appwrite is a strong BaaS choice, but there was no MCP-native way to give an agent safe, typed access to Appwrite operations.
-
-## What I built
-
-- 7 MCP tools covering core database operations — list, create, read, update, delete, and query
-- TypeScript throughout for type safety between the protocol layer and Appwrite SDK
-- Docker packaging for one-command deployment alongside other MCP servers
-- Error handling and validation so failed operations surface clearly instead of silently breaking agent flows
-
-## Results
-
-The server runs at a 99.9% success rate across tool calls in production usage — meaning agents can depend on it as infrastructure, not a flaky experiment.`,
-  },
-  {
-    slug: 'syncify',
-    title: 'Syncify',
-    subtitle: 'Real-time synchronized music listening with friends.',
-    description:
-      'Real-time music streaming platform with synchronized playback, live chat, and social listening features',
-    image: '/projects/syncify.png',
-    imageFit: 'contain',
-    gradientBackground: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-    technologies: [
-      { icon: SiReact, color: 'text-blue-500', name: 'React' },
-      { icon: SiGraphql, color: 'text-pink-500', name: 'GraphQL' },
-      { icon: SiTailwindcss, color: 'text-cyan-500', name: 'Tailwind CSS' },
-      { icon: SiNodedotjs, color: 'text-green-600', name: 'Node.js' },
-      { icon: SiMongodb, color: 'text-green-700', name: 'MongoDB' },
-      { icon: SiRedis, color: 'text-red-600', name: 'Redis' },
-    ],
-    status: 'operational',
-    liveUrl: '#',
-    githubUrl: '#',
-    relatedProjects: ['token-lab', 'pasandida-aurat'],
-    content: `Listening to music alone is fine. Listening together — actually in sync, in the same moment — is a different product problem entirely. Syncify is built around that.
-
-## What it does
-
-Users join a room, queue tracks, and hear the same audio at the same timestamp. Live chat runs alongside playback so the social layer isn't bolted on after the fact.
-
-## The hard part
-
-Synchronized playback sounds simple until you account for network latency, device differences, reconnects, and someone joining mid-song. The core engineering challenge was keeping every client within an acceptable drift window without the experience feeling brittle.
-
-## Stack choices
-
-- GraphQL for flexible room and queue APIs
-- Redis for real-time state — who's in the room, what's playing, where in the track
-- MongoDB for persistent user and session data
-- React frontend with Tailwind for a clean listening-room UI
-
-## What I learned
-
-Real-time products punish small timing assumptions. Building Syncify meant thinking in milliseconds and designing recovery paths for every disconnect scenario.`,
-  },
-  {
-    slug: 'pasandida-aurat',
-    title: 'Pasandida Aurat',
-    subtitle: 'A dating platform built around anonymous questions and authentic connection.',
-    description:
-      'Innovative dating platform featuring anonymous questions and authentic connections - currently in development',
-    image: '/projects/pasandida-aurat.png',
-    imageFit: 'contain',
-    gradientBackground: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
     technologies: [
       { icon: SiNextdotjs, color: 'text-black', name: 'Next.js' },
       { icon: SiTypescript, color: 'text-blue-600', name: 'TypeScript' },
       { icon: SiReact, color: 'text-blue-500', name: 'React' },
       { icon: SiTailwindcss, color: 'text-cyan-500', name: 'Tailwind CSS' },
-      { icon: SiPrisma, color: 'text-teal-600', name: 'Prisma' },
-      { icon: SiRedis, color: 'text-red-600', name: 'Redis' },
     ],
-    status: 'building',
-    liveUrl: '#',
-    relatedProjects: ['syncify', 'token-lab'],
-    content: `Most dating apps optimize for swipes. Pasandida Aurat optimizes for curiosity — the kind that starts with a question, not a photo.
+    status: 'operational',
+    liveUrl: 'https://job-fit-analyser-one.vercel.app/',
+    githubUrl: 'https://github.com/maulik1247/Job-fit-analyser',
+    relatedProjects: ['token-lab', 'field-ops'],
+    content: `Job hunting is a volume game that punishes volume. The more roles you apply to, the harder it gets to tailor each application — and the moment you stop tailoring, your response rate drops. Most candidates end up choosing between quality and scale. They shouldn't have to.
 
-## The idea
+Job Fit Analyser is an AI tool that reads a job description and tells you exactly how well your profile fits — and more importantly, where the gaps are and what to do about them.
 
-Users send anonymous questions to people they're interested in. Answers reveal personality before appearance dominates the interaction. The goal is slower, more intentional connection — less performance, more honesty.
+## The problem it solves
 
-## Current status
+A job description is a signal, not just a checklist. It tells you what the hiring team actually cares about, what language they use, what they're optimising for. Most candidates skim it, decide they're a fit based on the title, and send a generic application. That's why most applications go nowhere.
 
-The product is actively in development. Core flows — profiles, anonymous Q&A, matching logic — are being built on a Next.js + Prisma stack with Redis handling real-time notifications.
+The candidates who do well are the ones who read JDs carefully, map their experience to the specific language in the posting, and reframe their story to match what the role is asking for. Job Fit Analyser automates that process.
 
-## What I'm designing for
+## What it does
 
-- A question-first onboarding flow that sets tone before users see each other's full profiles
-- Moderation and safety primitives built in from the start, not added after launch
-- A UI that feels warm and human, not gamified
+Paste in a job description. The AI breaks it down — required skills, preferred qualifications, seniority signals, team context — and cross-references it against your profile. You get a fit score, a gap analysis, and specific recommendations on how to reposition your experience for that role.
 
-## Why I'm building it
+But the fit score is the least interesting part. What sits below it is what matters — a recruiter-style risk assessment that tells you specifically why you might not get shortlisted, not just which keywords you're missing. "Resume does not explicitly highlight experience with vision systems" is more useful than "vision systems: not found."
 
-Dating products shape how people present themselves. I wanted to build one that rewards being interesting over being polished.`,
+Then it flips. An "Improve your positioning" section gives you story and framing advice, not keyword stuffing instructions. The difference between "add the word vision systems to your resume" and "highlight any experience applicable to high-stakes, fast decision-making environments" is the difference between an ATS hack and actual positioning work.
+
+Not generic advice. Role-specific, JD-grounded output that tells you what to emphasise, what to address, and what to leave out.
+
+## The thinking behind it
+
+I built this during my own job search. I was applying to 30+ roles across PM, Product Ops, and AI-adjacent positions — each with a different framing, different vocabulary, different priorities. Manually doing a fit analysis for every role was taking longer than writing the application itself.
+
+The tool started as a personal shortcut. It turned into something more useful — a way to be honest with yourself about fit before you invest time in an application, and a way to sharpen your positioning when the fit is close but not obvious.
+
+## What makes it different
+
+Most AI job tools help you write better. This one helps you think better — about which roles are worth your time, how to frame your experience for a specific context, and where you genuinely need to close a gap versus where you just need to tell your story differently.
+
+The output isn't a polished resume. It's a mirror — an honest read of how a recruiter would see your profile against this specific role, before you hit send. That's the gap most job search tools don't fill, because it's harder to build and less comfortable to read.
+
+## Why it matters
+
+For anyone navigating a job search across multiple role types or industries, clarity is the actual bottleneck. Not the writing. The thinking before the writing. Job Fit Analyser is built for that moment — between reading a JD and deciding whether and how to apply — where most candidates either skip the hard thinking or do it badly under pressure.
+
+A tool that does that thinking with you, grounded in the actual JD, changes the quality of every application that follows.`,
+  },
+  {
+    slug: 'field-ops',
+    title: 'FieldOps',
+    subtitle: 'Distribution Management Platform',
+    description:
+      'Multi-tier FMCG distribution platform with live pipeline visibility, role-based dashboards, and cascading alerts across Company → CNF → SS → Distributor → Retailer.',
+    image: '/projects/field-ops.png',
+    imageFit: 'contain',
+    gradientBackground: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    technologies: [
+      { icon: SiHtml5, color: 'text-orange-600', name: 'HTML' },
+      { icon: SiCss, color: 'text-blue-600', name: 'CSS' },
+      { icon: SiJavascript, color: 'text-yellow-500', name: 'JavaScript' },
+    ],
+    status: 'operational',
+    liveUrl: 'https://field-ops-coral.vercel.app/',
+    githubUrl: 'https://github.com/maulik1247/FieldOps',
+    relatedProjects: ['token-lab', 'cigar-website'],
+    content: `India's FMCG distribution networks run on WhatsApp messages, Excel sheets, and phone calls. A stockist in Surat doesn't know what the CNF agent in Ahmedabad dispatched yesterday. A distributor places an order and waits two days for confirmation. A field rep checks in on paper. Nobody has a single view of what's actually moving through the chain.
+
+FieldOps is a distribution management platform built for the way Indian FMCG supply chains actually work — multi-tier, relationship-driven, and operationally complex in ways that generic ERP software was never designed to handle.
+
+## The problem it solves
+
+A typical FMCG distribution chain moves through five layers: Company → CNF Agent → Super Stockist → Distributor → Retailer. Each layer has its own people, its own stock, its own orders, and its own visibility gaps. The company at the top can see what left the warehouse. It usually has no reliable picture of what's sitting at DB level, what a retailer actually has on shelf, or where an order got stuck.
+
+FieldOps gives every stakeholder in that chain a role-appropriate view of the same live data — so a Company Admin sees the full pipeline, a CNF Agent sees their dispatch queue, a Distributor sees their incoming orders, and a Field Employee sees their beat plan and attendance. Same system, same data, different lenses.
+
+## What it does
+
+The live distribution pipeline view shows units flowing across all five tiers in real time — warehouse stock, CNF holdings, stockist inventory, distributor levels, and retailer shelf stock — in a single dashboard. No more calling down the chain to find out where a shipment is.
+
+The alerts layer surfaces what needs attention before it becomes a problem. A retailer going out of stock triggers a ripple alert upstream. A CNF dispatch delay flags automatically. A pending purchase order sitting unapproved surfaces in the feed with context — not just a notification, but enough information to act on it immediately.
+
+Role-based access means every user sees exactly what's relevant to their job. A field employee checking in doesn't see revenue data. A company admin sees everything — revenue MTD, units dispatched, low stock SKUs, employee attendance, recent orders, and live alerts — in one view without switching tools.
+
+## What I built
+
+A multi-role prototype with six distinct user personas — Company Admin, CNF Agent, Super Stockist, Distributor, Retailer, and Field Employee — each with a tailored dashboard and permission set. The live distribution pipeline visualises unit flow across all five tiers simultaneously. The order management layer tracks status from placement to delivery. The alerts system flags cascading supply issues with upstream context so the right person can act, not just be informed.
+
+## The thinking behind it
+
+This came directly from my time at Neome.ai, where I worked with FMCG and manufacturing clients trying to plug workflow gaps with automation tools. The same problems kept surfacing — visibility across tiers, order confirmation delays, field attendance tracking, stock alerts that arrived too late to act on.
+
+Most of the solutions in the market are either too heavy (SAP-level ERP that takes 18 months to implement) or too light (a WhatsApp bot that tells you yesterday's stock). FieldOps is designed for the middle — a product that a CNF agent in a tier-2 city can actually use on day one, and that gives a Company Admin the operational picture they've been building in Excel for years.
+
+## Why it matters
+
+Distribution is where FMCG margins are made or lost. A stockout at the retailer level that could have been caught two tiers up is not just lost revenue — it's a gap that a competitor fills. The companies that win in Indian FMCG are the ones with the best ground-level visibility, and right now most of them are running that visibility on gut feel and group chats.
+
+FieldOps is what that visibility looks like when it's actually built.`,
+  },
+  {
+    slug: 'cigar-website',
+    title: 'Cigar Website',
+    subtitle: 'Crescendo × Marriott — Concept Website',
+    description:
+      'Concept site for a World Cup 2026 pergola experience — live match screenings, signature cigars, and fine spirits at Marriott properties across 10 host cities.',
+    image: '/projects/cigar-website.png',
+    imageFit: 'contain',
+    gradientBackground: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+    technologies: [
+      { icon: SiHtml5, color: 'text-orange-600', name: 'HTML' },
+      { icon: SiCss, color: 'text-blue-600', name: 'CSS' },
+      { icon: SiJavascript, color: 'text-yellow-500', name: 'JavaScript' },
+    ],
+    status: 'operational',
+    liveUrl: 'https://pergola-cigar.vercel.app/',
+    githubUrl: 'https://github.com/maulik1247/Pergola-Cigar',
+    relatedProjects: ['field-ops', 'token-lab'],
+    content: `Not every project starts with a brief. This one started with a question: what would a premium hospitality experience look like if it were designed from the brand up, not the venue up?
+
+Crescendo × Marriott is a concept website for a World Cup 2026 pergola experience — live match screenings, signature cigars, and fine spirits at Marriott properties across all 10 host cities. The project was never about building a booking system. It was about building the feeling of a product that doesn't exist yet, convincingly enough that it could.
+
+## What it is
+
+A fully designed concept site for a premium outdoor hospitality experience — open-air pergola lounges at Marriott properties, curated cigar and spirit pairings, white-glove event management, and reserved seating for World Cup matches. The kind of experience that sits between a sports bar and a private members club, designed for the audience that wants both the game and the occasion.
+
+## What I built
+
+A dark, editorial website with the visual language of luxury hospitality — gold typography, serif headlines, high-contrast layout, and a brand identity that could sit credibly alongside a Marriott co-branded property. The site covers concept, gallery, collection, experience, and packages — the full arc of a premium product from discovery to reservation intent.
+
+The copy, structure, and design were built to answer one question a potential guest or brand partner would ask within five seconds of landing: is this real? The answer the site gives is yes — because the experience it describes is specific enough, credible enough, and desirable enough to feel real even as a concept.
+
+## The thinking behind it
+
+This came from a genuine interest in the intersection of hospitality, premium experiences, and brand storytelling. The FIFA World Cup 2026 is the largest sporting event ever hosted — 104 matches, 10 cities, months of sustained attention from a global audience with money to spend on experiences. The gap between a generic hotel watch party and a genuinely curated evening is enormous, and nobody was designing for that gap with the seriousness it deserved.
+
+Crescendo was the attempt to design for it seriously.
+
+## Why it's on a PM portfolio
+
+Because product thinking is not just about software. A concept site like this is a product — it has a user (the potential guest), a goal (convert curiosity into reservation intent), a brand promise (premium, curated, exclusive), and a conversion funnel. Building it required the same decisions a PM makes on any product: what does the user need to believe before they take the next action, and what's the minimum we need to show them to get there?
+
+The answer here was atmosphere before information — which is why the site leads with the visual and the feeling, not the pricing table.`,
   },
 ]
 

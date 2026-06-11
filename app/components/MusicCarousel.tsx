@@ -43,17 +43,22 @@ function TrackCard({
             aria-hidden
           />
 
-          {(isHovered || isActive) && (
-            <div className="absolute inset-0 bg-black/30" />
-          )}
+          <div
+            className={`absolute inset-0 bg-black/30 ${
+              isHovered || isActive ? '' : 'sm:hidden'
+            }`}
+            aria-hidden
+          />
 
-          {(isHovered || isActive) && (
-            <span className="absolute bottom-4 right-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-[#1DB954] shadow-lg transition-transform group-hover:scale-110">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden>
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </span>
-          )}
+          <span
+            className={`absolute bottom-4 right-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-[#1DB954] shadow-lg transition-transform group-hover:scale-110 ${
+              isHovered || isActive ? '' : 'sm:hidden'
+            }`}
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden>
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </span>
         </div>
 
         <div className="p-3">
@@ -104,8 +109,8 @@ export default function MusicCarousel() {
             </div>
           </div>
 
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-linear-to-r from-white to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-linear-to-l from-white to-transparent" />
+          <div className="carousel-fade-left pointer-events-none absolute inset-y-0 left-0 z-10 w-12 sm:w-20" />
+          <div className="carousel-fade-right pointer-events-none absolute inset-y-0 right-0 z-10 w-12 sm:w-20" />
         </div>
       </div>
     </section>

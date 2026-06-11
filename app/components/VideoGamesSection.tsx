@@ -21,8 +21,8 @@ export default function VideoGamesSection() {
             className="max-w-none"
           />
 
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-30 w-16 bg-linear-to-r from-white to-transparent sm:w-20" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-30 w-16 bg-linear-to-l from-white to-transparent sm:w-20" />
+          <div className="carousel-fade-left pointer-events-none absolute inset-y-0 left-0 z-30 w-12 sm:w-20" />
+          <div className="carousel-fade-right pointer-events-none absolute inset-y-0 right-0 z-30 w-12 sm:w-20" />
         </div>
       </div>
     </section>

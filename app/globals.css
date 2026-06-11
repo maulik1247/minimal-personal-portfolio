@@ -267,6 +267,14 @@
     margin-right: calc(50% - 50vw);
   }
 
+  .carousel-fade-left {
+    background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  .carousel-fade-right {
+    background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
