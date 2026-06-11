@@ -6,7 +6,6 @@ import {
   SiMongodb,
   SiNextdotjs,
   SiNodedotjs,
-  SiPostgresql,
   SiPrisma,
   SiReact,
   SiRedis,
@@ -38,12 +37,12 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: 'notesbuddy',
-    title: 'NotesBuddy',
-    subtitle: 'A full-stack study platform for notes, practice, and AI-assisted learning.',
+    slug: 'token-lab',
+    title: 'Token Lab',
+    subtitle: 'AI Playground',
     description:
-      'A comprehensive study platform with notes, flashcards, quizzes, AI chatbot, and interactive learning tools',
-    image: '/projects/notesbuddy.png',
+      'A prompt testing tool that compares model outputs across three temperature lanes — with token usage, cost, and latency in one view.',
+    image: '/projects/token-lab.png',
     imageFit: 'contain',
     gradientBackground: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     technologies: [
@@ -51,30 +50,38 @@ export const projects: Project[] = [
       { icon: SiTypescript, color: 'text-blue-600', name: 'TypeScript' },
       { icon: SiReact, color: 'text-blue-500', name: 'React' },
       { icon: SiTailwindcss, color: 'text-cyan-500', name: 'Tailwind CSS' },
-      { icon: SiPrisma, color: 'text-teal-600', name: 'Prisma' },
-      { icon: SiPostgresql, color: 'text-blue-700', name: 'PostgreSQL' },
-      { icon: SiDocker, color: 'text-blue-500', name: 'Docker' },
     ],
     status: 'operational',
-    liveUrl: '#',
-    githubUrl: '#',
+    liveUrl: 'https://token-lab-sandy.vercel.app/',
+    githubUrl: 'https://github.com/maulik1247/Token-lab',
     relatedProjects: ['syncify', 'appwrite-mcp-server'],
-    content: `NotesBuddy started as a simple idea: students shouldn't need five different apps to study one subject. Notes in one place, flashcards somewhere else, quizzes in a third tab, and an AI helper that doesn't know any of your context.
+    content: `Building AI features means making a lot of decisions that are hard to justify. Which model? What temperature? Is the variance in outputs a feature or a problem? Most teams answer these questions by running one prompt, reading the output, and going with their gut. That's not a process — it's a coin flip with extra steps.
+
+Token Lab is a prompt testing tool that makes those decisions defensible.
+
+## The problem it solves
+
+When you're shipping an AI-powered feature, temperature is one of the first things you'll debate. Too deterministic and the outputs feel robotic. Too creative and they become inconsistent — which is a support ticket waiting to happen. The right setting depends on the use case, and the only honest way to find it is to compare outputs at different settings against the same input.
+
+Most people don't do this because there's no easy way to do it. You'd have to run the same prompt three times, manually, in different sessions, then hold the outputs in your head while you compare. Token Lab removes that friction entirely.
 
 ## What it does
 
-The platform brings the full study loop into one product — read notes, drill with flashcards, test yourself with quizzes, and ask an AI chatbot questions grounded in your own material.
+Three temperature lanes. One prompt. One click. All three run in parallel and results come back simultaneously — outputs, token usage, cost, and latency per lane, all in the same view.
 
-## What I built
+The analytics layer surfaces what matters for product decisions: how much does this prompt actually cost at scale? Is Lane 3's creative variance genuinely better for this use case, or just noisier? Does the cheaper model perform close enough to justify the cost difference? These are the questions a PM needs to answer before signing off on a feature, and Token Lab gives you the data to answer them without involving an engineer every time.
 
-- A Next.js app with server components for fast page loads and client interactivity where it matters
-- Prisma + PostgreSQL for structured content — notes, decks, quiz sets, user progress
-- Dockerized deployment so the stack runs consistently across environments
-- An AI chat layer that works on top of uploaded study material, not generic prompts
+## The thinking behind it
 
-## Why it matters
+AI product decisions get made at two levels — the technical level (which model, what parameters) and the product level (what tradeoffs are we making for our users). In most teams, the PM is either excluded from the first conversation or has to take the engineer's word for it.
 
-Most study tools optimize for one format. NotesBuddy optimizes for the workflow — the back-and-forth between reading, recalling, testing, and asking questions. That's the loop students actually run when they're preparing for exams.`,
+Token Lab is built for the PM who wants to be in the room with data. You don't need to understand the math behind temperature sampling to use it — you need to see the outputs side by side, understand the cost implications, and make a call. That's what it's designed for.
+
+## Why it matters beyond the tool
+
+Most AI playgrounds are built for engineers. They're optimised for raw access — model parameters, API responses, JSON outputs. Token Lab is optimised for decisions — the kind a product team needs to make quickly, repeatedly, and with enough evidence to explain them to a stakeholder.
+
+The gap between "we tested this" and "here's what we found" is where most AI feature decisions fall apart. Token Lab is built to close that gap.`,
   },
   {
     slug: 'appwrite-mcp-server',
@@ -94,7 +101,7 @@ Most study tools optimize for one format. NotesBuddy optimizes for the workflow 
     status: 'operational',
     liveUrl: '#',
     githubUrl: '#',
-    relatedProjects: ['notesbuddy', 'syncify'],
+    relatedProjects: ['token-lab', 'syncify'],
     content: `AI agents are only as useful as the tools they can call. This project bridges Appwrite's database layer to the Model Context Protocol — so LLMs can read, write, and query Appwrite collections through a structured, reliable interface.
 
 ## The problem
@@ -132,7 +139,7 @@ The server runs at a 99.9% success rate across tool calls in production usage �
     status: 'operational',
     liveUrl: '#',
     githubUrl: '#',
-    relatedProjects: ['notesbuddy', 'pasandida-aurat'],
+    relatedProjects: ['token-lab', 'pasandida-aurat'],
     content: `Listening to music alone is fine. Listening together — actually in sync, in the same moment — is a different product problem entirely. Syncify is built around that.
 
 ## What it does
@@ -173,7 +180,7 @@ Real-time products punish small timing assumptions. Building Syncify meant think
     ],
     status: 'building',
     liveUrl: '#',
-    relatedProjects: ['syncify', 'notesbuddy'],
+    relatedProjects: ['syncify', 'token-lab'],
     content: `Most dating apps optimize for swipes. Pasandida Aurat optimizes for curiosity — the kind that starts with a question, not a photo.
 
 ## The idea
