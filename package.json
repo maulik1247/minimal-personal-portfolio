@@ -7,7 +7,8 @@
     "build": "next build --turbopack",
     "start": "next start",
     "refresh-movies": "tsx scripts/refresh-movie-cache.ts",
-    "download-game-covers": "tsx scripts/download-game-covers.ts"
+    "download-game-covers": "tsx scripts/download-game-covers.ts",
+    "download-destination-images": "tsx scripts/download-destination-images.ts"
   },
   "dependencies": {
     "@heroui/avatar": "^2.2.22",

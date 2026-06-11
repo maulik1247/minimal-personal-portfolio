@@ -1,21 +1,21 @@
 "use client"
 
 import React from 'react'
-import { InfiniteMovingGameCards } from '@/components/ui/infinite-moving-game-cards'
-import { favoriteGames } from '@/lib/videoGamesData'
+import { InfiniteMovingDestinationCards } from '@/components/ui/infinite-moving-destination-cards'
+import { destinationsTravelled } from '@/lib/destinationsData'
 
-export default function VideoGamesSection() {
+export default function DestinationsSection() {
   return (
     <section className="bg-white">
       <div className="section-shell">
         <div className="flex flex-col gap-2">
-          <p className="section-eyebrow">Off the clock</p>
-          <h3 className="section-title text-gray-700">Favorite Games</h3>
+          <p className="section-eyebrow">Wanderlust</p>
+          <h3 className="section-title text-gray-700">Destinations Travelled</h3>
         </div>
 
         <div className="relative min-h-[320px] overflow-hidden rounded-xl">
-          <InfiniteMovingGameCards
-            items={favoriteGames}
+          <InfiniteMovingDestinationCards
+            items={destinationsTravelled}
             direction="right"
             speed="slow"
             className="max-w-none"

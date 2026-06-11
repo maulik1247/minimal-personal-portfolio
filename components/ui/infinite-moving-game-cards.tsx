@@ -18,20 +18,20 @@ function GameCard({
   item: GameItem;
   priority?: boolean;
 }) {
-  const isLongTitle = item.title.length > 18;
+  const isLongTitle = item.title.length > 16;
 
   return (
     <li
-      className="group h-[380px] w-[272px] max-w-full shrink-0 perspective-[1000px] sm:w-[288px] md:h-[400px] md:w-[304px]"
+      className="group w-[180px] shrink-0 perspective-[1000px]"
       aria-label={item.title}
     >
-      <div className="relative h-full w-full rounded-[28px] border border-zinc-200 bg-black shadow-sm transition-transform duration-500 ease-out transform-3d group-hover:[transform:rotateY(180deg)]">
-        <div className="absolute inset-0 overflow-hidden rounded-[28px] [backface-visibility:hidden]">
+      <div className="relative aspect-[2/3] w-full rounded-2xl border border-gray-200 bg-neutral-200 ring-1 ring-black/10 transition-transform duration-500 ease-out transform-3d group-hover:[transform:rotateY(180deg)]">
+        <div className="absolute inset-0 overflow-hidden rounded-2xl [backface-visibility:hidden]">
           <Image
             src={item.cover}
             alt=""
             fill
-            sizes="(max-width: 640px) 272px, 304px"
+            sizes="180px"
             priority={priority}
             className="object-cover object-center"
           />
@@ -41,35 +41,33 @@ function GameCard({
             aria-hidden
           />
 
-          <span className="absolute top-4 right-4 z-10 inline-flex rounded-full border border-white/10 bg-black/70 px-2.5 py-1 text-[10px] font-medium tracking-[0.12em] text-white uppercase backdrop-blur-sm sm:text-[11px]">
+          <span className="absolute top-2 right-2 z-10 inline-flex rounded-full bg-black/70 px-2 py-0.5 text-[10px] font-medium tracking-[0.1em] text-white uppercase backdrop-blur-sm">
             {item.hoursPlayed}h played
           </span>
         </div>
 
-        <div className="absolute inset-0 overflow-hidden rounded-[28px] [backface-visibility:hidden] [transform:rotateY(180deg)]">
+        <div className="absolute inset-0 overflow-hidden rounded-2xl [backface-visibility:hidden] [transform:rotateY(180deg)]">
           <Image
             src={item.cover}
             alt=""
             fill
-            sizes="(max-width: 640px) 272px, 304px"
+            sizes="180px"
             className="object-cover object-center scale-110 blur-2xl opacity-60"
             aria-hidden
           />
 
           <div className="absolute inset-0 bg-black/55" aria-hidden />
 
-          <div className="relative z-10 flex h-full flex-col items-center justify-center gap-3 px-6 text-center text-white">
+          <div className="relative z-10 flex h-full flex-col items-center justify-center gap-2 px-4 text-center text-white">
             <h3
               className={cn(
-                "max-w-[220px] text-balance font-bold leading-[1.05] tracking-tight",
-                isLongTitle
-                  ? "text-[1.65rem] sm:text-[1.75rem]"
-                  : "text-[2rem] sm:text-[2.25rem]",
+                "max-w-[150px] text-balance font-bold leading-tight tracking-tight",
+                isLongTitle ? "text-base" : "text-lg",
               )}
             >
               {item.title}
             </h3>
-            <p className="text-[10px] font-medium tracking-[0.28em] text-white/75 uppercase sm:text-[11px]">
+            <p className="text-[9px] font-medium tracking-[0.22em] text-white/75 uppercase">
               {item.hoursPlayed} hours played
             </p>
           </div>
@@ -115,7 +113,7 @@ export const InfiniteMovingGameCards = ({
       )}
     >
       <ul
-        className="flex w-max min-w-full shrink-0 flex-nowrap items-stretch gap-5 animate-scroll sm:gap-6"
+        className="flex w-max min-w-full shrink-0 flex-nowrap items-stretch gap-6 animate-scroll"
         style={{ animationPlayState: isPaused ? "paused" : "running" }}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
